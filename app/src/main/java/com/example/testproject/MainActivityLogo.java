@@ -1,30 +1,32 @@
 package com.example.testproject;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
+import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivityLogo extends AppCompatActivity {
-ImageView imageView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_logo);
 
+        Intent intent = new Intent(MainActivityLogo.this,MainActivitySignIn.class);
 
-        imageView = findViewById(R.id.splashscreen);
-        imageView.setOnClickListener(new View.OnClickListener() {
+
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivityLogo.this,MainActivityCamera.class);
+            public void run() {
                 startActivity(intent);
             }
-        });
+        }, 4000);
 
 
     }
-    }
+}
+
 
