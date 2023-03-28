@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -45,11 +46,13 @@ public class MainActivityCamera2 extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Uri uri=data.getData();
+
         ig.setImageURI(uri);
 
-//        Intent intent= new Intent(MainActivityCamera2.this,objectdetection.class);
-//
-//        intent.putExtra("data",uri.toString());
-//        startActivity(intent);
+        Intent intent= new Intent(MainActivityCamera2.this,MainActivityObjectDetection.class);
+
+
+        intent.putExtra("data",uri.toString());
+        startActivity(intent);
     }
 }
